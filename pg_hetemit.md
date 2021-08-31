@@ -46,9 +46,22 @@ uid=1000(cmeeks) gid=1000(cmeeks) groups=1000(cmeeks)
 
 # Privilege Escalation
 ```md
-[cmeeks@hetemit restjson_hetemit]$ ls -al /etc/systemd/system/pythonapp.service
--rw-rw-r-- 1 root cmeeks 326 Aug 20 06:02 /etc/systemd/system/pythonapp.service
+[cmeeks@hetemit restjson_hetemit]$ find / -group cmeeks -ls 2>/dev/null | grep -v "home\|tmp\|proc"
+  5015736      4 -rw-rw-r--   1  root     cmeeks        302 Nov 13  2020 /etc/systemd/system/pythonapp.service
 ```
+
++ `sudo` comamnd?
+```bash
+[cmeeks@hetemit restjson_hetemit]$ sudo -l
+Matching Defaults entries for cmeeks on hetemit:
+    !visiblepw, always_set_home, match_group_by_gid, always_query_group_plugin, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS", env_keep+="MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS
+    LC_CTYPE", env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET
+    XAUTHORITY", secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin
+
+User cmeeks may run the following commands on hetemit:
+    (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff
+```
+
 
 ```md
 ...
