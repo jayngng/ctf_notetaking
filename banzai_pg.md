@@ -44,9 +44,9 @@ define('DBNAME', 'main');
 ?>
 ```
 
-+ MYSQL 14.44 is vulnerable to User-Defined Function (UDF) exploit.
++ `MySQL` is vulnerable to User-Defined Function (UDF) exploit.
 
-+ Download the `raptor_udf2.c` source code: https://www.exploit-db.com/exploits/47163
++ Download the `raptor_udf2.c` source code: https://www.exploit-db.com/exploits/1518
 
 + Compile.
 
